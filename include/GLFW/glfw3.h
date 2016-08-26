@@ -119,11 +119,14 @@ extern "C" {
  * the OS X OpenGL header blocks the definition of ptrdiff_t by glext.h.
  * Include it unconditionally to avoid surprising side-effects.
  */
+ 
 #include <stddef.h>
 
 /* Include because it is needed by Vulkan and related functions.
  */
-#include <stdint.h>
+#if defined(GLFW_INCLUDE_VULKAN)
+ #include <stdint.h>
+#endif
 
 /* Include the chosen client API headers.
  */
